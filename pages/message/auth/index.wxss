@@ -1,0 +1,50 @@
+.inner {
+    text-align: center;
+    margin: 240rpx auto 0;
+}
+
+.image image {
+    width: 310rpx;
+    height: 240rpx;
+}
+
+.text {
+    font-size: 30rpx;
+    color: #666;
+    line-height: 80rpx;
+    margin-top: 20rpx;
+}
+.bot{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:0 auto;
+}
+.btn {
+    margin-top: 36rpx;
+    width: 50%;
+    height: 84rpx;
+    /* background: rgb(126, 221, 62); */
+    text-align: center;
+    line-height: 84rpx;
+    color:  green;
+    font-size: 28rpx;
+    border: none;
+    /* border-radius: 42rpx; */
+}
+button:after {
+    display: none;
+}
+.quxiao{
+  margin-top: 36rpx;
+    width: 50%;
+    height: 84rpx;
+    /* background: rgb(126, 221, 62); */
+    text-align: center;
+    line-height: 84rpx;
+    color:  green;
+    font-size: 28rpx;
+    border: none;
+    /* border-radius: 42rpx; */
+}

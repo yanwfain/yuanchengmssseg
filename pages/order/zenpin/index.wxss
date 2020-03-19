@@ -1,0 +1,196 @@
+/* pages/order/zenpin/index.wxss */
+
+.top_user {
+  /* margin: 20rpx 0; */
+  padding: 10rpx 0;
+  background: white;
+  margin-bottom: 20rpx;
+}
+
+.avurl {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 auto;
+}
+.txt_txts{
+  width: 100%;
+  padding: 20rpx 0;
+  font-size: 24rpx;
+  color:gray;
+  text-align: center;
+}
+.avurl image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 100%;
+  margin: 0 auto;
+}
+
+.user_name_zen {
+  width: 60%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 auto;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.liwu_conten {
+  background: white;
+  padding: 20rpx;
+}
+
+.top_cont_1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 3rpx solid rgb(216, 215, 215);
+}
+
+.cont_shop_zen {
+  /* width: 96%; */
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop_img {
+  width: 18%;
+}
+
+.shop_img image {
+  width: 100%;
+  height: 126rpx;
+}
+
+.cont_shop_txt {
+  width: 80%;
+  height: 120rpx;
+  font-size: 26rpx;
+}
+
+.cont_shop_txt_2 {
+  color: gray;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cont_shop_txt_1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-bottom: 10rpx;
+}
+
+.font_txt {
+  text-align: center;
+  font-weight: 600;
+  padding: 20rpx 0;
+  font-size: 38rpx;
+  /* border-bottom: 3rpx solid rgb(216, 215, 215); */
+}
+
+.liu_zenuser {
+  border-top: 3rpx solid rgb(216, 215, 215);
+  padding: 16rpx 10rpx;
+  font-size: 24rpx;
+  background: rgb(250, 250, 250);
+  border-bottom: 3rpx solid rgb(216, 215, 215);
+}
+
+.but_gouser {
+  width: 80%;
+  background:#ff5555;
+  color: white;
+  font-size: 28rpx;
+  padding: 6rpx 0;
+}
+.tishi_show{
+  width: 86%;
+  font-size: 22rpx;
+  color: gray;
+  margin: 0 auto;
+  text-align: center;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+}
+.cenn_t{
+  background: white;
+  margin-top:20rpx;
+}
+.time_zen_time{
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  font-weight: 600;
+  padding: 20rpx 0;
+}
+.time_zen_time image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.cont-list-txt{
+  font-size: 26rpx;
+}
+.cont_list{
+  padding: 30rpx 30rpx;
+  display: flex;
+  background: white;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3rpx solid rgb(216, 215, 215);
+  border-top:3rpx solid rgb(216, 215, 215);
+}
+.txt_bot_zen{
+  background: white;
+  padding: 20rpx;
+  font-size: 26rpx;
+  color: gray;
+}
+.ops_pad{
+  padding-bottom: 10rpx;
+}
+.user_ids{
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  border-bottom: 3rpx solid rgb(216, 215, 215);
+  position: relative;
+}
+.user_ids image{
+  width: 10%;
+  height:68rpx;
+  border-radius: 100%;
+}
+.user_zen_right{
+  width: 86%;
+
+}
+.look_wuliu{
+  position: absolute;
+  width: 20%;
+
+  top:36%;
+  /* bottom: 0; */
+  right: 0;
+}
+.but_gousers{
+width: 80%;
+background: green;
+color: white;
+font-size: 28rpx;
+padding: 30rpx;
+margin: 0 auto;
+text-align: center;
+}

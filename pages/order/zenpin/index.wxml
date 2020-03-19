@@ -1,0 +1,182 @@
+<!--pages/order/zenpin/index.wxml-->
+<view class="model" wx:if="{{modelShow}}">
+  <include src="/pages/index/openauth.wxml"></include>
+</view>
+<view class="top_user">
+  <view class="avurl">
+    <image src="{{avatar}}"></image>
+  </view>
+  <view class="user_name_zen">
+    {{user_name||'未更新用户信息'}}
+  </view>
+</view>
+
+<view class="fui-cell-group" id="addressInfo" wx:if="{{is_view}}">
+  <block wx:if="{{!type_isop}}">
+    <block wx:if="{{list.address}}">
+      <navigator class="fui-cell" hoverClass="none" openType="navigate" style="padding-top:32rpx;padding-bottom:32rpx" url="/pages/member/address/select">
+        <block>
+          <block wx:if="{{list.address}}">
+            <view class="fui-cell-icon" style="margin-right:24rpx">
+              <text class="icox icox-dingwei1"></text>
+            </view>
+          </block>
+        </block>
+        <view class="fui-cell-text textl info" style="{{list.address?'':'display:flex;justify-content: center;'}}">
+          <block>
+            <block wx:if="{{!list.address}}">
+              <view class="fui-cell-icon">
+                <text class="icox icox-icon02" style="color:#ff5555"></text>
+              </view>
+            </block>
+          </block>
+          <block>
+            <block wx:if="{{list.address}}">
+              <view class="has-address ">
+                <view>收货人：</view>
+                <text class="name">{{list.realname}} </text>
+                <text class="mobile">{{list.mobile}}</text>
+              </view>
+            </block>
+          </block>
+          <block>
+            <block wx:if="{{list.address}}">
+              <view class="adress">{{list.province+list.city+list.area+' '+list.address}}</view>
+            </block>
+          </block>
+          <block>
+            <block wx:if="{{!list.address}}">
+              <view bindtap="address" class="text no-address" data-type="open">添加收货地址</view>
+            </block>
+          </block>
+        </view>
+        <view class="fui-cell-remark"></view>
+      </navigator>
+    </block>
+  </block>
+  <block wx:else>
+    <view class="top_zen">
+      <image src="../../../static/images/zen1.png"></image>
+
+    </view>
+    <view class="tetx_zen">赠送礼品</view>
+    <view class="zen_cont">
+      <view class="cont_z">
+        <view class="colt_txt">第一步</view>
+        <view class="bot_z">选择送礼类型</view>
+      </view>
+      <view class="jiao_z"></view>
+      <view class="cont_z">
+        <view class="colt_txt">第二步</view>
+        <view class="bot_z">下单支付</view>
+      </view>
+      <view class="jiao_z"></view>
+      <view class="cont_z">
+        <view class="colt_txt">第三步</view>
+        <view class="bot_z">分享给好友</view>
+      </view>
+      <view class="jiao_z"></view>
+      <view class="cont_z">
+        <view class="colt_txt">第四步</view>
+        <view class="bot_z">好友领取</view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{ openid !=open_id}}">
+    <block wx:if="{{!list.address&&!list.isonlyverifygoods}}">
+      <navigator class="fui-cell" hoverClass="none" openType="navigate" style="padding-top:32rpx;padding-bottom:32rpx" url="/pages/member/address/select">
+        <view class="fui-cell-text textl info" style="display:flex;justify-content: center;">
+          <view class="fui-cell-icon">
+            <text class="icox icox-icon02" style="color:#ff5555"></text>
+          </view>
+          <view class="text no-address" data-type="open">添加收货地址</view>
+        </view>
+        <view class="fui-cell-remark"></view>
+      </navigator>
+    </block>
+  </block>
+</view>
+
+
+<view class="liwu_conten">
+  <view class="top_cont_1">
+    <view class="txt_zen">礼物清单</view>
+    <view class="ops_numzen">共有礼品
+      <text style="color:red">{{all_num}}</text>份，已领取
+      <text style="color:red">{{over_num}}</text>份</view>
+  </view>
+  <view class="cont_shop_zen" wx:for="{{shop}}">
+    <view class="shop_img">
+      <image src="{{item.thumb}}"></image>
+    </view>
+    <view class="cont_shop_txt">
+      <view class="cont_shop_txt_1">{{item.title}}</view>
+      <view class="cont_shop_txt_2">数量:×{{item.total}}</view>
+    </view>
+  </view>
+  <view wx:if="{{is_timestatus}}" style="background: white;">
+    <view class="txt_txts" wx:if="{{!istxt}}">您已领取，礼物发货状态请于订单中查看</view>
+    <view class="font_txt" wx:if="{{over_num==all_num&&is_view}}">礼物已发送完毕</view>
+    <button class="but_gouser" wx:if="{{over_num<all_num && openid !=open_id &&istxt&&order_shp.is_over==1}}" bindtap="goLinshop">我要领取</button>
+    <view class="liu_zenuser" wx:if="{{over_num<all_num && openid ==open_id}}">
+      <input placeholder="给好友说点什么~~" value="{{add_liuyan}}" bindinput="inputFn"></input>
+    </view>
+ 
+
+  <view class="cenn_t">
+    <button open-type="share" class="but_gouser" wx:if="{{over_num<all_num && openid ==open_id}}">我要给好友送礼</button>
+    <view class="tishi_show" wx:if="{{over_num<all_num && openid ==open_id}}">如果3天之内好友没有领取，金额会自动退回你的支付账户</view>
+  </view>
+   </view>
+
+  <view wx:if="{{!is_timestatus}}">
+    <view class="font_txt">礼单已过期</view>
+  </view>
+
+  <view class="time_zen_time" wx:if="{{over_num<all_num}}">
+    <image src="../../../static/images/dao.png"></image>
+    {{countdown.day}}天 {{countdown.hour}}:{{countdown.minute}}:{{countdown.second}} <text wx:if="{{is_timestatus}}">后结束</text> <text wx:if="{{!is_timestatus}}">已结束</text>
+  </view>
+</view>
+
+
+
+
+<view class="cont_list">
+  <view class="cont-list-txt">礼单生成时间</view>
+  <view class="cont-list-txt">{{dindan_time}}</view>
+</view>
+<view class="cont_list" style="border:none;">
+  <view class="cont-list-txt">订单信息</view>
+  <view class="cont-list-txt">{{dindanid}}</view>
+</view>
+<view class="cenn_t" wx:if="{{over_num!=0}}">
+  <view class="cont_list" style="border-top:none;margin-top:20rpx;">
+    <view class="cont-list-txt">领取记录</view>
+    <view class="cont-list-txt"></view>
+  </view>
+  <view class="user_ids" wx:for="{{give_user}}">
+
+    <image src="{{item.avatar}}"></image>
+    <view class="user_zen_right">
+      <view> {{item.user_name||'未更新用户信息'}}</view>
+      <view>{{item.createtime}}</view>
+    </view>
+    <view class="look_wuliu" wx:if="{{openid ==open_id&&item.status>=2 }}" data-order_id="{{item.order_id}}" data-openid="{{item.openid}}" bindtap="look_wuliuFn">查看物流</view>
+  </view>
+</view>
+
+<view class="cont_list" style="border-top:none;margin-top:20rpx;">
+  <view class="cont-list-txt">领取规则</view>
+  <view class="cont-list-txt"></view>
+</view>
+<view class="txt_bot_zen">
+
+  <view class="ops_pad">1.请在规定时间内领取礼品，如果3天内好友未领取礼物，金额会退还到送礼人的支付账户</view>
+  <view class="ops_pad">2.当送礼人购买礼物赠送多人时，每位好友限领取一份。</view>
+</view>
+<view style="height:100rpx;"></view>
+
+<!-- 
+<view class="but_gousers" bindtap="opsFn">点击查看对方效果(测试)</view>
+<view class="but_gousers" bindtap="opsFns">点击查看有无领取效果(测试)</view> -->
